@@ -1,6 +1,4 @@
-import getConfig from "next/config"
-
-const { publicRuntimeConfig } = getConfig() || {}
+const getApiUrl = () => (typeof window !== "undefined" ? "/api" : "http://localhost:3000/api")
 
 // Timeout config : keep this timeout values in sync
 export const timeout = {
@@ -9,7 +7,7 @@ export const timeout = {
    session: { hours: 7 },
 }
 
-export const API_URL = publicRuntimeConfig ? publicRuntimeConfig.API_URL : "http://localhost:3000"
+export const API_URL = getApiUrl()
 export const ACT_DECLARATION_ENDPOINT = "/actDeclaration"
 export const ACT_SEARCH_ENDPOINT = "/acts/search"
 export const ACT_DETAIL_ENDPOINT = "/actDetail"
