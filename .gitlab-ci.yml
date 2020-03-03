@@ -8,6 +8,24 @@ variables:
    HELM_CHART_VERSION: "3.0.1"
    VALUES_FILE: ./.k8s/app.values.yml
 
+#
+
+Deploy app (prod):
+  extends:
+    - .deploy_app_stage
+  only:
+    refs:
+      - master
+  variables:
+    HOST: prod-${CI_PROJECT_NAME}.${KUBE_INGRESS_BASE_DOMAIN}
+    K8S_NAMESPACE: ${CI_PROJECT_NAME}
+    PRODUCTION: "true"
+  environment:
+    name: prod
+    url: https://prod-${CI_PROJECT_NAME}.${KUBE_INGRESS_BASE_DOMAIN}
+
+#
+
 .base_azure_db: &base_azure_db
    image: "registry.gitlab.factory.social.gouv.fr/socialgouv/docker/azure-db:0.24.0"
    variables:
