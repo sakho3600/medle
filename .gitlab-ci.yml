@@ -7,7 +7,7 @@ variables:
    PROJECT: "medle"
    HELM_CHART_VERSION: "4.0.0"
    VALUES_FILE: ./.k8s/app.values.yml`
-   ENABLE_AZURE_POSTGRES: true
+   ENABLE_AZURE_POSTGRES: 1
 
 #
 
