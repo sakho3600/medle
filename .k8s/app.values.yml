@@ -1,6 +1,8 @@
 image:
    repository: registry.gitlab.factory.social.gouv.fr/socialgouv/medle
 
+nameOverride: medle
+
 labels:
    app.kubernetes.io/part-of: medle
    owner: medle
