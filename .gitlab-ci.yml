@@ -1,7 +1,7 @@
 include:
   - project: SocialGouv/gitlab-ci-yml
     file: /autodevops_simple_app.yml
-    ref: b608c236dbcb85bc1183b4f74e3c5fbdfcb78067
+    ref: aad9b4c82983c0586fb01653e1597eb6f068f9c5
 
 variables:
   PROJECT: "medle"
