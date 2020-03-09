@@ -2,6 +2,9 @@ include:
    - project: SocialGouv/gitlab-ci-yml
      file: /autodevops_simple_app.yml
      ref: aad9b4c82983c0586fb01653e1597eb6f068f9c5
+   - project: SocialGouv/gitlab-ci-yml
+     file: /base_migrate_azure_db.yml
+     ref: v9.0.0
 
 variables:
    PROJECT: "medle"
