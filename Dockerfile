@@ -31,8 +31,7 @@ ENV TEST_CURRENT_DATE=$TEST_CURRENT_DATE
 ARG API_URL
 ENV API_URL=$API_URL
 
-COPY next.config.js server.js  ./
-COPY src/sentry.js ./src/sentry.js
+COPY next.config.js knexfile.js ./
 COPY .next/ ./.next
 
 USER node
