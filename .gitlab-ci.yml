@@ -1,7 +1,7 @@
 include:
    - project: SocialGouv/gitlab-ci-yml
      file: /autodevops_simple_app.yml
-     ref: c9e9eecc77c1bf3cd0c41a5cb42e8d69c46e1130
+     ref: a89b7171f0bdb9bf7418b58e6578c7388b11732a
    - project: SocialGouv/gitlab-ci-yml
      file: /base_migrate_azure_db.yml
      ref: v9.0.0
