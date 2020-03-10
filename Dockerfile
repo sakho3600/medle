@@ -2,6 +2,10 @@ FROM node:12-alpine
 
 WORKDIR /app
 
+COPY package.json yarn.lock ./
+
+RUN yarn --no-cache --production --frozen-lockfile
+
 # Build-time variables for the frontend
 ARG SENTRY_DSN
 ENV SENTRY_DSN=$SENTRY_DSN
@@ -26,10 +30,6 @@ ENV TEST_CURRENT_DATE=$TEST_CURRENT_DATE
 
 ARG API_URL
 ENV API_URL=$API_URL
-
-COPY package.json yarn.lock ./
-
-RUN yarn --production --frozen-lockfile
 
 COPY next.config.js server.js  ./
 COPY src/sentry.js ./src/sentry.js
