@@ -4,7 +4,7 @@ include:
      ref: 5a063dd9b195fffea71c873e403e1f0b76bdfea9
    - project: SocialGouv/gitlab-ci-yml
      file: /base_migrate_azure_db.yml
-     ref: v9.0.0
+     ref: 5a063dd9b195fffea71c873e403e1f0b76bdfea9
 
 variables:
    PROJECT: "medle"
