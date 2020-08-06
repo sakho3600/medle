@@ -14,7 +14,7 @@ const manifests = create("app", {
         },
         limits: {
           cpu: "200m",
-          memory: "256Mo",
+          memory: "256Mi",
         },
       },
     },
