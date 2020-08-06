@@ -1,0 +1,9 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: app-configmap
+data:
+  NODE_ENV: "production"
+  PORT: "3000"
+  API_URL: "/api"
+  POSTGRES_SSL: "true"
