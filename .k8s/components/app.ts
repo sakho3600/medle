@@ -4,7 +4,7 @@ import { create } from "@socialgouv/kosko-charts/components/app"
 
 const manifests = create("app", {
   env,
-  config: { containerPort: 3030 },
+  config: { containerPort: 3000 },
   deployment: {
     container: {
       resources: {
