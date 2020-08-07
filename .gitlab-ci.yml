@@ -46,6 +46,7 @@ Tests e2e:
     - name: $CI_REGISTRY_IMAGE/app:$CI_COMMIT_SHA
       alias: api
   script:
+    - sleep 30 # wait for DB to be ready
     - yarn migrate:latest
     - yarn seed:run:staging
     - yarn test
