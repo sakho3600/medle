@@ -6,18 +6,15 @@ include:
 variables:
   AUTO_DEVOPS_RELEASE_AUTO: "🔖"
   AUTO_DEVOPS_PRODUCTION_AUTO: "🚀"
-  ENABLE_AZURE_POSTGRES: 1
-  TEST_DISABLED: 1
-  CODE_QUALITY_DISABLED: 1
   NOTIFY_DISABLED: 1
 
-Lint:
-  rules:
-    - when: never
+# Lint:
+#   rules:
+#     - when: never
 
-Test:
-  rules:
-    - when: never
+# Test:
+#   rules:
+#     - when: never
 
 Register image:
   extends: .autodevops_register_image
@@ -25,6 +22,27 @@ Register image:
     DOCKER_BUILD_ARGS: >-
       --shm-size 512M
     IMAGE_NAME: $CI_REGISTRY_IMAGE/app
+
+# e2e tests need a running API so we use the built image as a gitlab service
+Tests e2e:
+  stage: e2e
+  image: $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA
+  except:
+    refs:
+      - master
+  variables:
+    PGHOST: medledevserver.postgres.database.azure.com
+    DATABASE_URL: postgres://user_${CI_COMMIT_SHORT_SHA}%40${PGHOST}:pass_${CI_COMMIT_SHORT_SHA}@${PGHOST}/autodevops_${CI_COMMIT_SHORT_SHA}?ssl=true
+    API_URL: http://api:3000
+    NODE_ENV: staging
+    POSTGRES_SSL: "true"
+  services:
+    - name: $CI_REGISTRY_IMAGE/app:$CI_COMMIT_SHA
+      alias: api
+  script:
+    - yarn migrate:latest
+    - yarn seed:run:staging
+    - yarn test
 
 E2E test on deployed branch:
   stage: Deploy
