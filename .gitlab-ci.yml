@@ -30,7 +30,7 @@ Register image:
 # e2e tests need a running API so we use the built image as a gitlab service
 Tests e2e:
   stage: e2e
-  image: $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA
+  image: $CI_REGISTRY_IMAGE/app:$CI_COMMIT_SHA
   except:
     refs:
       - master
