@@ -16,13 +16,9 @@ stages:
   - Deploy
   - e2e
 
-# Lint:
-#   rules:
-#     - when: never
-
-# Test:
-#   rules:
-#     - when: never
+Lint:
+  rules:
+    - when: never
 
 Register image:
   extends: .autodevops_register_image
