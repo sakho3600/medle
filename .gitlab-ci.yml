@@ -36,7 +36,7 @@ Tests e2e:
       - master
   variables:
     PGHOST: medledevserver.postgres.database.azure.com
-    DATABASE_URL: postgres://user_${CI_COMMIT_SHORT_SHA}%40${PGHOST}:pass_${CI_COMMIT_SHORT_SHA}@${PGHOST}/autodevops_${CI_COMMIT_SHORT_SHA}?ssl=true
+    DATABASE_URL: postgres://user_${CI_COMMIT_SHORT_SHA}%40${PGHOST}:password_${CI_COMMIT_SHORT_SHA}@${PGHOST}/autodevops_${CI_COMMIT_SHORT_SHA}?ssl=true
     API_URL: http://api:3000
     NODE_ENV: staging
     POSTGRES_SSL: "true"
