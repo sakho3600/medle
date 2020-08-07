@@ -34,6 +34,8 @@ Tests e2e:
   except:
     refs:
       - master
+    variables:
+      - $RELEASE
   variables:
     PGHOST: medledevserver.postgres.database.azure.com
     DATABASE_URL: postgres://user_${CI_COMMIT_SHORT_SHA}%40${PGHOST}:password_${CI_COMMIT_SHORT_SHA}@${PGHOST}/autodevops_${CI_COMMIT_SHORT_SHA}?ssl=true
