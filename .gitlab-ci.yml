@@ -46,7 +46,6 @@ Tests e2e:
     - name: $CI_REGISTRY_IMAGE/app:$CI_COMMIT_SHA
       alias: api
   script:
-    - env
     - yarn migrate:latest
     - yarn seed:run:staging
     - yarn test
