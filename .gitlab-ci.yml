@@ -8,6 +8,14 @@ variables:
   AUTO_DEVOPS_PRODUCTION_AUTO: "🚀"
   NOTIFY_DISABLED: 1
 
+stages:
+  - Install
+  - Code Quality
+  - Registration
+  - Release
+  - Deploy
+  - e2e
+
 # Lint:
 #   rules:
 #     - when: never
